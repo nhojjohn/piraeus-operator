@@ -74,6 +74,7 @@ metadata:
   name: {{ $.Release.Name }}-{{ . }}
   namespace: {{ $.Release.Namespace | default "default" }}
 spec:
+  storageClassName: hostpath
   capacity:
     storage: {{ required "A valid .Values.size entry required!" $.Values.size }}
   volumeMode: Filesystem
